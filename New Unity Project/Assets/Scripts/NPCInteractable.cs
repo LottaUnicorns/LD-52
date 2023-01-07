@@ -8,6 +8,9 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] GameObject elderWish;
     [SerializeField] GameObject soulObject;
     [SerializeField] Vector3 ownLocation;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioDying;
+   
 
     
     public void Interact()
@@ -17,7 +20,7 @@ public class NPCInteractable : MonoBehaviour
 
     public void GiveWish()
     {
-        Debug.Log("Elder: I want COLLECTIBLE");
+        FindObjectOfType<Dialogue>().StartDialogue();
         Instantiate(elderWish, Vector3.zero, Quaternion.identity);
     }
 
@@ -26,13 +29,12 @@ public class NPCInteractable : MonoBehaviour
 
     void DeathSequence()
     {
-        Debug.Log("ELDER IS DYING");
+        audioSource.PlayOneShot(audioDying);
         Invoke("ElderDies", deathDelay);
     }
 
     void ElderDies()
     {
-        Debug.Log("ELDER DIED");
         ownLocation = transform.position;
         Instantiate(soulObject, ownLocation, Quaternion.identity);
         Destroy(gameObject);

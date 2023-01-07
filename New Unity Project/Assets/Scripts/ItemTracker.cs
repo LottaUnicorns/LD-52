@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ItemTracker : MonoBehaviour
 {
     // Start is called before the first frame update
     int collectibleCount = 0;
+    public TextMeshProUGUI collectibleCountDisplay;
     int wishCount = 0;
+    public TextMeshProUGUI wishCountDisplay;
     int soulCount = 0;
+    public TextMeshProUGUI soulCountDisplay;
     [SerializeField] float interactRange = 2f;
 
 
     void Update()
     {
+        // UPDATING HUD -----------------------------------------
+        collectibleCountDisplay.text = collectibleCount.ToString();
+        wishCountDisplay.text = wishCount.ToString();
+        soulCountDisplay.text = soulCount.ToString();
+
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
@@ -72,6 +84,8 @@ public class ItemTracker : MonoBehaviour
     void InteractibleCount()
     {
         Debug.Log("player gave elder : " + collectibleCount);
+        collectibleCount--;
+        wishCount--;
     }
 
     void AskWish()

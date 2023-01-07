@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-  //  [SerializeField] Transform Goal;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioFootsteps;
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,26 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        PlaySound();
+        SetGoal();
+    }
+
+
+    void PlaySound()
+    {
+        if (agent.velocity != Vector3.zero)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(audioFootsteps);
+            }
+        }
+        
+        
+    }
+
+    void SetGoal()
     {
         if (Input.GetMouseButtonDown(0))
         {

@@ -5,10 +5,12 @@ using UnityEngine;
 public class CribInteractable : MonoBehaviour
 {
     [SerializeField] GameObject newLife;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioNewLife;
 
     public void CreateLife()
     {
-        Debug.Log("Crib: One life was created!");
+        audioSource.PlayOneShot(audioNewLife);
         Instantiate(newLife, Vector3.zero, Quaternion.identity);
     }
 }
