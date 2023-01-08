@@ -29,7 +29,7 @@ public class ItemTracker : MonoBehaviour
         {
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
-            {
+            {              
                 // INTERACT WITH ELDER ----------------------------------
                 if (collider.TryGetComponent(out NPCInteractable npcInteractable))
                 {

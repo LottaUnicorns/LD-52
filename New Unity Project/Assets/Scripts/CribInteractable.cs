@@ -6,11 +6,11 @@ public class CribInteractable : MonoBehaviour
 {
     [SerializeField] GameObject newLife;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip audioNewLife;
+    [SerializeField] AudioClip audioSoulDeposit;
 
     public void CreateLife()
     {
-        audioSource.PlayOneShot(audioNewLife);
+        audioSource.PlayOneShot(audioSoulDeposit);
         Instantiate(newLife, Vector3.zero, Quaternion.identity);
     }
 }

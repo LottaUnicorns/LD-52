@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] float textSpeed;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioTalking;
+    bool dialogStarted = false;
     
     int index = 0;
 
@@ -23,7 +24,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && dialogStarted == true)
         {
             if (dialogueText.text == lines[index])
             {
@@ -39,6 +40,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        dialogStarted = true;
         dialogueText.text = string.Empty;
         dialoguePanel.SetActive(true);
         StartCoroutine(TypeLine());
@@ -67,6 +69,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             dialoguePanel.SetActive(false);
+            dialogStarted = false;
         }
     }
 }

@@ -7,6 +7,7 @@ public class NewLifeSequence : MonoBehaviour
     [SerializeField] float deathDelay = 3f;
 
 
+
     void Start()
     {
         Invoke("EndOfSequence", deathDelay);
