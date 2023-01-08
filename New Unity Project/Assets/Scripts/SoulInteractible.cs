@@ -10,6 +10,11 @@ public class SoulInteractible : MonoBehaviour
     public void Harvest()
     {
         audioSource.PlayOneShot(audioPickupSoul);
+        Invoke("DestroyMe", 1f);
+    }
+
+    private void DestroyMe()
+    {
         Destroy(gameObject);
     }
 }
