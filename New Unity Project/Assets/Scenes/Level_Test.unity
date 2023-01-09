@@ -4416,7 +4416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2923421228409808411, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.44
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2923421228409808411, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4424,7 +4424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2923421228409808411, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.6
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2923421228409808411, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4458,10 +4458,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soul
       objectReference: {fileID: 0}
-    - target: {fileID: 8049896691987509573, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
-      propertyPath: audioPickupSoul
-      value: 
-      objectReference: {fileID: 8300000, guid: 694cde7087790844ca73b32157d99a9c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 961a4bd5fe943574cb3985a910a44089, type: 3}
 --- !u!1001 &8999821582801046751

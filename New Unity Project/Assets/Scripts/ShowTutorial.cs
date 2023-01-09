@@ -18,15 +18,16 @@ public class ShowTutorial : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (tutorialPanel == false)
+            if (tutorialPanel.activeSelf == true)
+            {
+                tutorialPanel.SetActive(false);
+            }
+
+            else if (tutorialPanel.activeSelf == false)
             {
                 tutorialPanel.SetActive(true);
             }
-            else if (tutorialPanel == true)
-            {
-                tutorialPanel.SetActive(true);
-            }
-            
+
         }
     }
 }
