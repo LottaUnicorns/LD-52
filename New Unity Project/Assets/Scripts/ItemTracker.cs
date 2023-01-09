@@ -14,7 +14,13 @@ public class ItemTracker : MonoBehaviour
     int soulCount = 0;
     public TextMeshProUGUI soulCountDisplay;
     [SerializeField] float interactRange = 2f;
+    Animator playerAnimator;
 
+
+    private void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -50,6 +56,7 @@ public class ItemTracker : MonoBehaviour
                 {
                     SoulCount();
                     soulInteractable.Harvest();
+                    PlayHarvestAnim();
                 }
 
 
@@ -67,6 +74,7 @@ public class ItemTracker : MonoBehaviour
                     {
                         SouldDeposit();
                         cribInteractable.CreateLife();
+                        PlayHarvestAnim();
                     }
                 }
             }
@@ -107,5 +115,12 @@ public class ItemTracker : MonoBehaviour
         soulCount--;
         Debug.Log("Souls in storage is : " + soulCount);
         
+    }
+    
+
+    //      PLAY HARVEST ANIMATION ----------------------------------
+    void PlayHarvestAnim()
+    {
+        playerAnimator.SetTrigger("Harvesting");
     }
 }

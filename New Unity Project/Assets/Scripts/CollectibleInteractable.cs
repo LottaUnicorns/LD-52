@@ -6,6 +6,7 @@ public class CollectibleInteractable : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioPickup;
+    [SerializeField] Canvas interactOptionCanvas;
     
     // Start is called before the first frame update
     public void Collect()
@@ -17,6 +18,7 @@ public class CollectibleInteractable : MonoBehaviour
 
     private void DestroyMe()
     {
+        interactOptionCanvas.enabled = false;
         Destroy(gameObject);
     }
 }

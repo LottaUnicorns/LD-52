@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioFootsteps;
     NavMeshAgent agent;
+    Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        playerAnimator = GetComponent<Animator>();
         
     }
 
@@ -27,10 +29,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (agent.velocity != Vector3.zero)
         {
+            playerAnimator.SetBool("IsWalking", true);
+
             if (!audioSource.isPlaying)
             {
                 audioSource.PlayOneShot(audioFootsteps);
             }
+        }
+        else
+        {
+            playerAnimator.SetBool("IsWalking", false);
         }
         
         

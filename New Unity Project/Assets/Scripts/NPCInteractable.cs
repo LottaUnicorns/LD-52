@@ -10,9 +10,16 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] Vector3 ownLocation;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioDying;
-   
+    [SerializeField] Canvas interactOptionCanvas;
+    Animator elderAnimator;
 
-    
+
+    void Start()
+    {
+        elderAnimator = GetComponent<Animator>();
+
+    }
+
     public void Interact()
     {
         DeathSequence();
@@ -30,13 +37,17 @@ public class NPCInteractable : MonoBehaviour
     void DeathSequence()
     {
         audioSource.PlayOneShot(audioDying);
+        elderAnimator.SetTrigger("Death");
         Invoke("ElderDies", deathDelay);
     }
+
 
     void ElderDies()
     {
         ownLocation = transform.position;
         Instantiate(soulObject, ownLocation, Quaternion.identity);
+        interactOptionCanvas.enabled = false;
+
         Destroy(gameObject);
     }
 }

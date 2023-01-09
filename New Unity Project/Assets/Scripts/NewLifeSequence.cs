@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NewLifeSequence : MonoBehaviour
 {
-    [SerializeField] float deathDelay = 3f;
-
+    [SerializeField] float deathDelay = 10f;
 
 
     void Start()
